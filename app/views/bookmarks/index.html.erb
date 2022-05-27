@@ -1,0 +1,14 @@
+<h1>All of your bookmarks</h1>
+
+
+<%= @bookmarks.each do |bookmark| %>
+  <div>
+    <%= bookmark.comment %>
+    <%= link_to 'Delete',
+        bookmark_path(bookmark),
+        method: :delete,
+        data: { confirm: 'Are you sure?' }
+    %>
+  </div>
+<% end %>
+<%= link_to 'Go back to list', list_path(id: @list.id) %>
